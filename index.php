@@ -14,6 +14,7 @@
 <a href="radar.php">Radar</a>.
 <a href="cake.php">Torta</a>.
 <a href="topUser.php">TopUser</a>.
+<a href="scatter.php">Scatter</a>.
 
 
 </body>

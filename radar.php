@@ -90,7 +90,7 @@ if (!empty($_POST['worker_id1']) && !empty($_POST['worker_id2'])) {
     <style type="text/css">
         body {
             font-family: Arial;
-            margin: 80px 100px 10px 100px;
+            margin: 10px 10px 10px 10px;
             padding: 0;
             color: white;
             text-align: center;
@@ -147,7 +147,7 @@ if (!empty($_POST['worker_id1']) && !empty($_POST['worker_id2'])) {
 
 <div class="container">
     <canvas id="chart"
-            style="width: 100%; height: 65vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
+            style="width: 60%; height: 25vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
     <script>
         var ctx = document.getElementById("chart").getContext('2d');
         var sum = 0;
@@ -226,9 +226,42 @@ if (!empty($_POST['worker_id1']) && !empty($_POST['worker_id2'])) {
         });
     </script>
     <div class="container">
+        <style>
+            a {
+                text-decoration: none;
+                display: inline-block;
+                padding: 8px 16px;
+            }
+
+            a:hover {
+                background-color: white;
+                color: black;
+            }
+
+            .previous {
+                background-color: white;
+                color: black;
+                float: left;
+            }
+
+            .next {
+                background-color: white;
+                color: black;
+                float: right;
+            }
+
+            .round {
+                border-radius: 50%;
+            }
+        </style>
+        <a href="#" class="previous round">&#8249;</a>
+
         <button style="font-size:16px" onclick="window.location.href='/Chart'" class="btn btn-secondary">Dashboard <i
                     class="fa fa-dashboard"></i>
         </button>
+
+        <a href="#" class="next round">&#8250;</a>
+
     </div>
 </div>
 
