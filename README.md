@@ -12,4 +12,5 @@ Si mostrano 6 grafici:
 [![Watch the video](graph1.PNG)](https://drive.google.com/file/d/1C38FKbey1eFeFJC5GUU5YzXqckEMmoSj/view?usp=sharing)
 ## License
 [Edoardo Re](https://github.com/edoardore), 2019
+[Chart.js](https://www.chartjs.org)
 
