@@ -51,6 +51,7 @@ if (!empty($_POST['worker_id'])) {
 } else {
     $data1 = 0;
     $data2 = 0;
+    $worker_id = '';
 }
 
 ?>
@@ -162,7 +163,14 @@ if (!empty($_POST['worker_id'])) {
             options: {
                 scales: {scales: {yAxes: [{beginAtZero: false}], xAxes: [{autoskip: true, maxTicketsLimit: 20}]}},
                 tooltips: {mode: 'index'},
-                legend: {display: true, position: 'top', labels: {fontColor: 'rgb(255,255,255)', fontSize: 16}}
+                legend: {display: true, position: 'top', labels: {fontColor: 'rgb(255,255,255)', fontSize: 16}},
+                title: {
+                    display: true,
+                    position: 'bottom',
+                    text: '<?php echo $worker_id;?>' + ' History',
+                    fontColor: 'rgba(255,249,255,0.5)',
+                    fontSize: 16,
+                }
             }
         });
     </script>
@@ -195,13 +203,13 @@ if (!empty($_POST['worker_id'])) {
                 border-radius: 50%;
             }
         </style>
-        <a href="#" class="previous round">&#8249;</a>
+        <a href="chartFile.php" class="previous round">&#8249;</a>
 
         <button style="font-size:16px" onclick="window.location.href='/Chart'" class="btn btn-secondary">Dashboard <i
                     class="fa fa-dashboard"></i>
         </button>
 
-        <a href="#" class="next round">&#8250;</a>
+        <a href="radar.php" class="next round">&#8250;</a>
 
     </div>
 </div>

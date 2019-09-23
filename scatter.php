@@ -88,19 +88,22 @@ if (!empty($_POST['db'])) {
         var data1 = [<?php echo $data1; ?>];
         var data2 = [<?php echo $data2; ?>];
         var data3 = [<?php echo $data3; ?>];
-        var count ={};
+        var storage = [];
         for (var i = 0; i < data2.length; i++) {
-            count[i] = {'x': data2[i], 'y': data3[i]};
+            x = data2[i];
+            y = data3[i];
+            var json = {x: x, y: y};
+            storage.push(json);
         }
         var myChart = new Chart(ctx, {
             type: 'scatter',
             data: {
                 labels: data1,
                 datasets: [{
-                    data: [count],
-                    backgroundColor: 'rgb(10,0,255, 0.2)',
+                    data: storage,
+                    backgroundColor: 'rgb(10,0,255)',
                     borderColor: 'rgb(10,0,255)',
-                    borderWidth: 1,
+                    borderWidth: 5,
                 }
                 ]
             },
@@ -110,7 +113,7 @@ if (!empty($_POST['db'])) {
                 title: {
                     display: true,
                     position: 'bottom',
-                    text: '<?php echo $file;?>' + ' Top Workers',
+                    text: 'X: <?php echo $file;?> evaluated by Worker, Y: average of quality by Worker',
                     fontColor: 'rgba(255,249,255,0.5)',
                     fontSize: 16,
                 },
@@ -154,14 +157,12 @@ if (!empty($_POST['db'])) {
                 border-radius: 50%;
             }
         </style>
-        <a href="#" class="previous round">&#8249;</a>
+        <a href="topUser.php" class="previous round">&#8249;</a>
 
         <button style="font-size:16px" onclick="window.location.href='/Chart'" class="btn btn-secondary">Dashboard <i
                     class="fa fa-dashboard"></i>
         </button>
-
-        <a href="#" class="next round">&#8250;</a>
-
+        <a href="chartFile.php" class="next round">&#8250;</a>
     </div>
 </div>
 

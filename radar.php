@@ -254,13 +254,13 @@ if (!empty($_POST['worker_id1']) && !empty($_POST['worker_id2'])) {
                 border-radius: 50%;
             }
         </style>
-        <a href="#" class="previous round">&#8249;</a>
+        <a href="chartWorker.php" class="previous round">&#8249;</a>
 
         <button style="font-size:16px" onclick="window.location.href='/Chart'" class="btn btn-secondary">Dashboard <i
                     class="fa fa-dashboard"></i>
         </button>
 
-        <a href="#" class="next round">&#8250;</a>
+        <a href="cake.php" class="next round">&#8250;</a>
 
     </div>
 </div>
