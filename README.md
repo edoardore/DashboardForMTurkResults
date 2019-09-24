@@ -1,7 +1,7 @@
 # DashboardForMTurkResults
 #### Funzionamento:
 Questa Dashboard interagisce con il database che viene creato nel progetto [ImageAndVideoQualityAmazonMTurk](https://github.com/edoardore/ImageAndVideoQualityAmazonMTurk).
-Si mostrano 6 grafici:
+Si mostrano 7 grafici:
 1) Storia delle valutazioni per un singolo file (Immagine o Video). (Line graph)
 2) Storia delle valutazioni effettuate da un singolo Worker (su Video o Immagini). (Line graph)
 3) Confronto delle valutazioni effettuate da due Worker. (Radar graph)
