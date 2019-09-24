@@ -13,3 +13,5 @@ Si mostrano 6 grafici:
 ## License
 [Edoardo Re](https://github.com/edoardore), 2019
 
+[Chart.js](https://www.chartjs.org)
+
