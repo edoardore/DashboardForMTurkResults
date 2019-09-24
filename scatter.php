@@ -162,7 +162,7 @@ if (!empty($_POST['db'])) {
         <button style="font-size:16px" onclick="window.location.href='/Chart'" class="btn btn-secondary">Dashboard <i
                     class="fa fa-dashboard"></i>
         </button>
-        <a href="chartFile.php" class="next round">&#8250;</a>
+        <a href="randomChart.php" class="next round">&#8250;</a>
     </div>
 </div>
 

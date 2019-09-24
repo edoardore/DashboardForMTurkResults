@@ -59,6 +59,11 @@
             <img src="graph6.PNG" height="250" width="388"/>
         </a>
     </div>
+    <div style="float: left; width: 33%;">
+        <a href="randomChart.php">
+            <img src="graph7.PNG" height="250" width="388"/>
+        </a>
+    </div>
 </div>
 
 </body>
