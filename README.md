@@ -8,6 +8,7 @@ Si mostrano 6 grafici:
 4) Risultati ottenuti per un singolo file. (Pie graph)
 5) Worker ordinati in base alle HIT effettuate e sottomesse. (Bar graph)
 6) Worker che hanno sottomesso piu HIT e media dei valori della qualità inserita da essi. (Scatter graph)
+7) Ordina i worker 'bugiardi' sulla base delle età e sesso differenti che hanno inserito nelle HIT. (Bar graph)
 ### Video Example:
 [![Watch the video](graph1.PNG)](https://drive.google.com/file/d/1C38FKbey1eFeFJC5GUU5YzXqckEMmoSj/view?usp=sharing)
 ## License
