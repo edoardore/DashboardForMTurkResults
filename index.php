@@ -28,42 +28,51 @@
 </style>
 <h1 style="margin: 50px; color: black;">Dashboard: </h1>
 <div class="container">
-    <div style="float: left; width: 33%;">
+    <div style="float: left; width: 33%;" class="zoom">
         <a href="chartFile.php">
             <img src="graph1.PNG" height="250" width="388"/>
         </a>
     </div>
-    <div style="float: left; width: 33%;">
+    <div style="float: left; width: 33%;" class="zoom">
         <a href="chartWorker.php">
             <img src="graph2.PNG" height="250" width="388"/>
         </a>
     </div>
-    <div style="float: left; width: 33%;">
+    <div style="float: left; width: 33%;" class="zoom">
         <a href="radar.php">
             <img src="graph3.PNG" height="250" width="388"/>
         </a>
     </div>
-    <div class="clearer"></div>
-    <div style="float: left; width: 33%;">
+    <div style="float: left; width: 33%;" class="zoom">
         <a href="cake.php">
             <img src="graph4.PNG" height="250" width="388"/>
         </a>
     </div>
-    <div style="float: left; width: 33%;">
+    <div style="float: left; width: 33%;" class="zoom">
         <a href="topUser.php">
             <img src="graph5.PNG" height="250" width="388"/>
         </a>
     </div>
-    <div style="float: left; width: 33%;">
+    <div style="float: left; width: 33%;" class="zoom">
         <a href="scatter.php">
             <img src="graph6.PNG" height="250" width="388"/>
         </a>
     </div>
-    <div style="float: left; width: 33%;">
+    <div style="float: left; width: 33%;" class="zoom">
         <a href="randomChart.php">
             <img src="graph7.PNG" height="250" width="388"/>
         </a>
     </div>
+
+    <style>
+        .zoom {
+            transition: transform .2s;]
+        }
+
+        .zoom:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </div>
 
 </body>
