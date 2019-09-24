@@ -66,11 +66,12 @@
 
     <style>
         .zoom {
-            transition: transform .2s;]
+            transition: transform .2s;
         }
 
         .zoom:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
+            opacity: 0.8;
         }
     </style>
 </div>
