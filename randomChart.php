@@ -25,7 +25,13 @@ if (!empty($_POST['db'])) {
     while ($row = mysqli_fetch_array($result1)) {
         if ($row['COUNTSEX'] > 1 || $row['COUNTAGE'] > 1) {
             $data1 = $data1 . '"' . $row['WORKER_ID'] . '",';
-            $data = $row['COUNTSEX'] + $row['COUNTAGE'];
+            if ($row['COUNTSEX'] == 1) {
+                $data = $row['COUNTAGE'];
+            } else if ($row['COUNTAGE'] == 1) {
+                $data = $row['COUNTSEX'];
+            } else {
+                $data = $row['COUNTSEX'] + $row['COUNTAGE'];
+            }
             $data2 = $data2 . '"' . $data . '",';
         }
     }

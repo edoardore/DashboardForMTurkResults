@@ -91,7 +91,7 @@ if (!empty($_POST['db'])) {
         var storage = [];
         for (var i = 0; i < data2.length; i++) {
             x = data2[i];
-            y = data3[i];
+            y = Math.round(data3[i]);
             var json = {x: x, y: y};
             storage.push(json);
         }
