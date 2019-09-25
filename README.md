@@ -12,6 +12,8 @@ Si mostrano 7 grafici:
 8) Mostra risultati di soli Workers maschi o femmine. (Pie graph)
 ### Video Example:
 [![Watch the video](Home.PNG)](https://drive.google.com/file/d/1C38FKbey1eFeFJC5GUU5YzXqckEMmoSj/view?usp=sharing)
+
+(Nel video la prima versione)
 ## License
 [Edoardo Re](https://github.com/edoardore), 2019
 
