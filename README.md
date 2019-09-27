@@ -12,7 +12,7 @@ Si mostrano 7 grafici:
 8) Mostra risultati di soli Workers maschi o femmine. (Pie graph)
 9) Visione di 3 grafici a scelta fra quelli precedenti in contemporanea. (Modular)
 ### Video Example:
-[![Watch the video](Home.PNG)](https://drive.google.com/file/d/1R7hEdR1PL4Sk4YCNi7PqjyXeyBKS1AtC/view?usp=sharing)
+[![Watch the video](Cattura.PNG)](https://drive.google.com/file/d/1R7hEdR1PL4Sk4YCNi7PqjyXeyBKS1AtC/view?usp=sharing)
 
 ## License
 [Edoardo Re](https://github.com/edoardore), 2019
