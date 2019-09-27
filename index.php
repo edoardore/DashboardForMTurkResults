@@ -35,32 +35,32 @@
 <div style="margin: 10px;">
     <img src="dashboardLogo.png" width="323" height="60">
 </div>
-<a href="chartFile.php">
+<a href="chartFile.php" style="text-decoration:none">
     <img src="graph1.PNG" height="200" width="323"/>
 </a>
-<a href="chartWorker.php">
+<a href="chartWorker.php" style="text-decoration:none">
     <img src="graph2.PNG" height="200" width="323"/>
 </a>
-<a href="radar.php">
+<a href="radar.php" style="text-decoration:none">
     <img src="graph3.PNG" height="200" width="323"/>
 </a>
-<a href="cake.php">
+<a href="cake.php" style="text-decoration:none">
     <img src="graph4.PNG" height="200" width="323"/>
 </a>
-<a href="topUser.php">
+<a href="topUser.php" style="text-decoration:none">
     <img src="graph5.PNG" height="200" width="323"/>
 </a>
-<a href="scatter.php">
+<a href="scatter.php" style="text-decoration:none">
     <img src="graph6.PNG" height="200" width="323"/>
 </a>
-<a href="randomChart.php">
+<a href="randomChart.php" style="text-decoration:none">
     <img src="graph7.PNG" height="200" width="323"/>
 </a>
-<a href="sexChart.php">
+<a href="sexChart.php" style="text-decoration:none">
     <img src="graph8.PNG" height="200" width="323"/>
 </a>
-<a href="personal.php">
-    <img src="graph8.PNG" height="200" width="323"/>
+<a href="personal.php" style="text-decoration:none">
+    <img src="graph9.PNG" height="200" width="323"/>
 </a>
 </div>
 
