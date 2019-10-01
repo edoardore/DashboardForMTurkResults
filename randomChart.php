@@ -158,7 +158,7 @@ if (!empty($_POST['db'])) {
                     class="fa fa-dashboard"></i>
         </button>
 
-        <a href="chartFile.php" class="next round">&#8250;</a>
+        <a href="sexChart.php" class="next round">&#8250;</a>
 
     </div>
 </div>

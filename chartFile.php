@@ -203,7 +203,7 @@ if (!empty($_POST['file'])) {
                 border-radius: 50%;
             }
         </style>
-        <a href="scatter.php" class="previous round">&#8249;</a>
+        <a href="sexChart.php" class="previous round">&#8249;</a>
 
         <button style="font-size:16px" onclick="window.location.href='/Chart'" class="btn btn-secondary">Dashboard
             <i

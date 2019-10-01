@@ -62,15 +62,15 @@ if (!empty($_POST['sel3'])) {
     <form method="post" id="form">
         <button type="submit" class="btn btn-secondary" id="button1" name="sel1" value="o" style="width: 33%;
         display: inline-block;">Next
-        </button>
+            <i class="fa fa-chevron-circle-right"></i></button>
 
         <button type="submit" class="btn btn-secondary" id="button2" name="sel2" value="o" style="width: 33%;
         display: inline-block;">Next
-        </button>
+            <i class="fa fa-chevron-circle-right"></i></button>
 
         <button type="submit" class="btn btn-secondary" id="button3" name="sel3" value="o" style="width: 33%;
         display: inline-block;">Next
-        </button>
+            <i class="fa fa-chevron-circle-right"></i></button>
 
     </form>
 </div>
