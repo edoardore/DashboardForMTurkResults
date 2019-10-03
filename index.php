@@ -59,6 +59,9 @@
 <a href="sexChart.php" style="text-decoration:none">
     <img src="graph8.PNG" height="200" width="323"/>
 </a>
+<a href="resolution.php" style="text-decoration:none">
+    <img src="graph10.PNG" height="200" width="323"/>
+</a>
 <a href="personal.php" style="text-decoration:none">
     <img src="graph9.PNG" height="200" width="323"/>
 </a>

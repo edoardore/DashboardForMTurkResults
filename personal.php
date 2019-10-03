@@ -1,6 +1,7 @@
 <?php
 session_start();
-$pages = array('', 'chartFileWidget.php', 'chartWorkerWidget.php', 'radarWidget.php', 'cakeWidget.php', 'topUserWidget.php', 'scatterWidget.php', 'randomChartWidget.php', 'sexChartWidget.php');
+$pages = array('', 'chartFileWidget.php', 'chartWorkerWidget.php', 'radarWidget.php', 'cakeWidget.php',
+    'topUserWidget.php', 'scatterWidget.php', 'randomChartWidget.php', 'sexChartWidget.php', 'resolutionWidget.php');
 
 if (empty($_SESSION['sel1']) && empty($_SESSION['sel2']) && empty($_SESSION['sel3'])) {
     $_SESSION['sel1'] = 1;
@@ -9,7 +10,7 @@ if (empty($_SESSION['sel1']) && empty($_SESSION['sel2']) && empty($_SESSION['sel
 }
 
 if (!empty($_POST['sel1'])) {
-    $var1 = ($_SESSION['sel1'] + 1) % 9;
+    $var1 = ($_SESSION['sel1'] + 1) % 10;
     if ($var1 == 0) {
         $_SESSION['sel1'] = 1;
     } else {
@@ -17,7 +18,7 @@ if (!empty($_POST['sel1'])) {
     }
 }
 if (!empty($_POST['sel2'])) {
-    $var2 = ($_SESSION['sel2'] + 1) % 9;
+    $var2 = ($_SESSION['sel2'] + 1) % 10;
     if ($var2 == 0) {
         $_SESSION['sel2'] = 1;
     } else {
@@ -25,7 +26,7 @@ if (!empty($_POST['sel2'])) {
     }
 }
 if (!empty($_POST['sel3'])) {
-    $var3 = ($_SESSION['sel3'] + 1) % 9;
+    $var3 = ($_SESSION['sel3'] + 1) % 10;
     if ($var3 == 0) {
         $_SESSION['sel3'] = 1;
     } else {
