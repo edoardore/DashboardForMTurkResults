@@ -12,17 +12,17 @@ $file = '';
 if (!empty($_POST['db'])) {
     $db = $_POST['db'];
     if ($db == 'Image') {
-        $query1 = "SELECT RESOLUTION FROM `immquality` GROUP BY WORKER_ID";
+        $query1 = "SELECT AGE FROM `immquality` GROUP BY WORKER_ID";
         $result1 = mysqli_query($mysqli, $query1);
         $file = 'Image';
     } else
         if ($db == 'Video') {
-            $query2 = "SELECT RESOLUTION FROM `vidquality` GROUP BY WORKER_ID";
+            $query2 = "SELECT AGE FROM `vidquality` GROUP BY WORKER_ID";
             $result1 = mysqli_query($mysqli, $query2);
             $file = 'Video';
         }
     while ($row = mysqli_fetch_array($result1)) {
-        $data1 = $data1 . '"' . $row['RESOLUTION'] . '",';
+        $data1 = $data1 . '"' . $row['AGE'] . '",';
     }
 }
 
@@ -63,7 +63,7 @@ if (!empty($_POST['db'])) {
 
 <body>
 <div class="container">
-    <h1>SCREEN RESOLUTION</h1>
+    <h1>AGE DISTRIBUTION</h1>
 </div>
 <form method="post" id="form">
     <div class="btn-group btn-group-toggle container" data-toggle="buttons">
@@ -83,26 +83,23 @@ if (!empty($_POST['db'])) {
     <script>
         var ctx = document.getElementById("chart").getContext('2d');
         var data1 = [<?php echo $data1; ?>];
-        var data = ['HD READY', 'FULL HD', '2K', 'SUPER HD', '4K'];
+        var data = ['0-18', '19-39', '40-59', '60-100'];
         var count = [];
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 4; i++) {
             count[i] = 0;
         }
         for (var j = 0; j < data1.length; j++) {
-            var split = data1[j].split('x');
-            if (split[0] < 1280 && split[1] < 720) {
+            if (data1[j] === "0-18") {
                 count[0] += 1;
-            } else if (split[0] < 1920 && split[1] < 1080) {
+            } else if (data1[j] === '19-39') {
                 count[1] += 1;
-            } else if (split[0] < 2048 && split[1] < 1080) {
+            } else if (data1[j] === '40-59') {
                 count[2] += 1;
-            } else if (split[0] < 3840 && split[1] < 2160) {
+            } else if (data1[j] === '60-100') {
                 count[3] += 1;
-            } else if (split[0] < 4096 && split[1] < 2160) {
-                count[4] += 1;
             }
         }
-        for (var k = 0; k < 5; k++) {
+        for (var k = 0; k < 4; k++) {
             count[k] = Math.round(count[k] * 100 / data1.length);
         }
         var myChart = new Chart(ctx, {
@@ -112,8 +109,8 @@ if (!empty($_POST['db'])) {
                 datasets:
                     [{
                         data: count,
-                        backgroundColor: 'rgb(21,255,0,0.2)',
-                        borderColor: 'rgb(21,255,0)',
+                        backgroundColor: 'rgb(255,242,0,0.2)',
+                        borderColor: 'rgb(255,242,0)',
                         borderWidth: 1,
                     }
                     ]
@@ -125,51 +122,13 @@ if (!empty($_POST['db'])) {
                 title: {
                     display: true,
                     position: 'bottom',
-                    text: '<?php echo $file;?>' + ' Screen Resolution Percentage',
+                    text: '<?php echo $file;?>' + ' Age Percentage',
                     fontColor: 'rgba(255,249,255,0.5)',
                     fontSize: 16,
                 }
             }
         });
     </script>
-    <div class="container">
-        <style>
-            a {
-                text-decoration: none;
-                display: inline-block;
-                padding: 8px 16px;
-            }
-
-            a:hover {
-                background-color: white;
-                color: black;
-            }
-
-            .previous {
-                background-color: white;
-                color: black;
-                float: left;
-            }
-
-            .next {
-                background-color: white;
-                color: black;
-                float: right;
-            }
-
-            .round {
-                border-radius: 50%;
-            }
-        </style>
-        <a href="sexChart.php" class="previous round">&#8249;</a>
-
-        <button style="font-size:16px" onclick="window.location.href='/Chart'" class="btn btn-secondary">Dashboard <i
-                    class="fa fa-dashboard"></i>
-        </button>
-
-        <a href="age.php" class="next round">&#8250;</a>
-
-    </div>
 </div>
 
 </body>

@@ -5,53 +5,25 @@ $user = 'utente';
 $pass = 'pass123';
 $db = 'dbmysql';
 $mysqli = new mysqli($host, $user, $pass, $db) or die($mysqli->error);
-session_start();
 $result1 = '';
+$data1 = '';
+$data2 = '';
+$file = '';
 if (!empty($_POST['db'])) {
     $db = $_POST['db'];
     if ($db == 'Image') {
-        $query1 = "SELECT DISTINCT IMAGE_FILE FROM `immquality`";
+        $query1 = "SELECT AGE FROM `immquality` GROUP BY WORKER_ID";
         $result1 = mysqli_query($mysqli, $query1);
-        $_SESSION['db'] = 'Image';
+        $file = 'Image';
     } else
         if ($db == 'Video') {
-            $query2 = "SELECT DISTINCT VIDEO_FILE FROM `vidquality`";
+            $query2 = "SELECT AGE FROM `vidquality` GROUP BY WORKER_ID";
             $result1 = mysqli_query($mysqli, $query2);
-            $_SESSION['db'] = 'Video';
+            $file = 'Video';
         }
-}
-$data1 = '';
-$data2 = '';
-if (!empty($_POST['file'])) {
-    if ($_SESSION['db'] == 'Image') {
-        $file = $_POST['file'];
-        $sql = "SELECT QUALITY, WORKER_ID FROM `immquality` WHERE IMAGE_FILE= '$file'";
-        $result = mysqli_query($mysqli, $sql);
-        while ($row = mysqli_fetch_array($result)) {
-            $data1 = $data1 . '"' . $row['QUALITY'] . '",';
-            $data2 = $data2 . '"' . $row['WORKER_ID'] . '",';
-
-        }
-        $data1 = trim($data1, ",");
-        $data2 = trim($data2, ",");
-
-    } else if ($_SESSION['db'] == 'Video') {
-        $file = $_POST['file'];
-        $sql = "SELECT QUALITY, WORKER_ID FROM `vidquality` WHERE VIDEO_FILE= '$file'";
-        $result = mysqli_query($mysqli, $sql);
-        while ($row = mysqli_fetch_array($result)) {
-            $data1 = $data1 . '"' . $row['QUALITY'] . '",';
-            $data2 = $data2 . '"' . $row['WORKER_ID'] . '",';
-
-        }
-        $data1 = trim($data1, ",");
-        $data2 = trim($data2, ",");
-
+    while ($row = mysqli_fetch_array($result1)) {
+        $data1 = $data1 . '"' . $row['AGE'] . '",';
     }
-} else {
-    $data1 = 0;
-    $data2 = 0;
-    $file = '';
 }
 
 ?>
@@ -91,7 +63,7 @@ if (!empty($_POST['file'])) {
 
 <body>
 <div class="container">
-    <h1>EVALUATION HISTORY OF SINGLE FILE</h1>
+    <h1>AGE DISTRIBUTION</h1>
 </div>
 <form method="post" id="form">
     <div class="btn-group btn-group-toggle container" data-toggle="buttons">
@@ -105,69 +77,52 @@ if (!empty($_POST['file'])) {
         </label>
     </div>
 </form>
-<form method="post">
-    <div class="container">
-        <select class="custom-select" name="file" id="select_file" onclick="selected()">
-            <option selected value="">Choose File...</option>
-            <?php while ($row = mysqli_fetch_array($result1)):; ?>
-                <option value="<?php echo $row[0] ?>"><?php echo $row[0] ?></option>
-            <?php endwhile; ?>
-        </select>
-    </div>
-    <div class="container">
-        <button type="submit" class="btn btn-secondary" disabled id="button">GET</button>
-    </div>
-    <script>
-        function selected() {
-            document.getElementById("button").disabled = false;
-        }
-    </script>
-</form>
-
 <div class="container">
     <canvas id="chart"
-            style="width: 70%; height: 35vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
+            style="width: 95%; height: 63vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
     <script>
         var ctx = document.getElementById("chart").getContext('2d');
-        var sum = 0;
         var data1 = [<?php echo $data1; ?>];
-        for (var i = 0; i < data1.length; i++) {
-            sum += parseInt(data1[i], 10);
+        var data = ['0-18', '19-39', '40-59', '60-100'];
+        var count = [];
+        for (var i = 0; i < 4; i++) {
+            count[i] = 0;
         }
-        var singleavg = Math.round(sum / data1.length);
-        var avg = [];
         for (var j = 0; j < data1.length; j++) {
-            avg.push(singleavg);
+            if (data1[j] === "0-18") {
+                count[0] += 1;
+            } else if (data1[j] === '19-39') {
+                count[1] += 1;
+            } else if (data1[j] === '40-59') {
+                count[2] += 1;
+            } else if (data1[j] === '60-100') {
+                count[3] += 1;
+            }
+        }
+        for (var k = 0; k < 4; k++) {
+            count[k] = Math.round(count[k] * 100 / data1.length);
         }
         var myChart = new Chart(ctx, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: [<?php echo $data2?>],
+                labels: data,
                 datasets:
                     [{
-                        label: 'Quality',
-                        data: data1,
-                        backgroundColor: 'transparent',
-                        borderColor: 'rgb(255,34,0)',
-                        borderWidth: 3
-                    },
-                        {
-                            label: 'Average',
-                            data: avg,
-                            backgroundColor: 'transparent',
-                            borderColor: 'rgb(10,0,255)',
-                            borderWidth: 1,
-                        }
+                        data: count,
+                        backgroundColor: 'rgb(255,242,0,0.2)',
+                        borderColor: 'rgb(255,242,0)',
+                        borderWidth: 1,
+                    }
                     ]
             },
             options: {
                 scales: {scales: {yAxes: [{beginAtZero: false}], xAxes: [{autoskip: true, maxTicketsLimit: 20}]}},
                 tooltips: {mode: 'index'},
-                legend: {display: true, position: 'top', labels: {fontColor: 'rgb(255,255,255)', fontSize: 16}},
+                legend: {display: false},
                 title: {
                     display: true,
                     position: 'bottom',
-                    text: '<?php echo $file;?>' + ' History',
+                    text: '<?php echo $file;?>' + ' Age Percentage',
                     fontColor: 'rgba(255,249,255,0.5)',
                     fontSize: 16,
                 }
@@ -203,16 +158,16 @@ if (!empty($_POST['file'])) {
                 border-radius: 50%;
             }
         </style>
-        <a href="age.php" class="previous round">&#8249;</a>
+        <a href="resolution.php" class="previous round">&#8249;</a>
 
-        <button style="font-size:16px" onclick="window.location.href='/Chart'" class="btn btn-secondary">Dashboard
-            <i
+        <button style="font-size:16px" onclick="window.location.href='/Chart'" class="btn btn-secondary">Dashboard <i
                     class="fa fa-dashboard"></i>
         </button>
 
-        <a href="chartWorker.php" class="next round">&#8250;</a>
+        <a href="chartFile.php" class="next round">&#8250;</a>
 
     </div>
 </div>
+
 </body>
 </html>

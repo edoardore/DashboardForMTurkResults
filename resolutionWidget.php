@@ -102,8 +102,8 @@ if (!empty($_POST['db'])) {
                 count[4] += 1;
             }
         }
-        for (var i = 0; i < 5; i++) {
-            count[i] = Math.round(count[i] * 100 / data1.length);
+        for (var k = 0; k < 5; k++) {
+            count[k] = Math.round(count[k] * 100 / data1.length);
         }
         var myChart = new Chart(ctx, {
             type: 'bar',

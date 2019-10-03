@@ -62,6 +62,9 @@
 <a href="resolution.php" style="text-decoration:none">
     <img src="graph10.PNG" height="200" width="323"/>
 </a>
+<a href="age.php" style="text-decoration:none">
+    <img src="graph11.PNG" height="200" width="323"/>
+</a>
 <a href="personal.php" style="text-decoration:none">
     <img src="graph9.PNG" height="200" width="323"/>
 </a>

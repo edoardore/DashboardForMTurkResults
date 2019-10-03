@@ -10,10 +10,12 @@ Si mostrano 9 grafici:
 6) Worker che hanno sottomesso piu HIT e media dei valori della qualità inserita da essi. (Scatter graph)
 7) Ordina i worker 'bugiardi' sulla base delle età e sesso differenti che hanno inserito nelle HIT. (Bar graph)
 8) Mostra risultati di soli Workers maschi o femmine. (Pie graph)
-9) Visione di 3 grafici a scelta fra quelli precedenti in contemporanea. (Modular)
+9) Grafico con percentuale di risoluzione degli schermi dei Workers. (Bar graph)
+10) Grafico con distribuzione di età dei Workers. (Bar graph)
+11) Visione di 3 grafici a scelta fra quelli precedenti in contemporanea. (Modular)
 ### Video Example:
 [![Watch the video](Cattura.PNG)](https://drive.google.com/file/d/1R7hEdR1PL4Sk4YCNi7PqjyXeyBKS1AtC/view?usp=sharing)
-
+Nel video versione senza grafico 9 e 10
 ## License
 [Edoardo Re](https://github.com/edoardore), 2019
 
